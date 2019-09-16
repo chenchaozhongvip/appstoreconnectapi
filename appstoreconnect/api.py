@@ -94,6 +94,7 @@ class Api:
 
 			def fetch_page(self):
 				self.payload = self.api._api_call(self.url)
+				print('ccz----res',self.payload)
 				self.total_length = self.payload.get('meta', {}).get('paging', {}).get('total', 0)
 
 		url = full_url if full_url else "%s%s" % (BASE_API, Resource.endpoint)
