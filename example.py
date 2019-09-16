@@ -11,10 +11,12 @@ if __name__ == "__main__":
 	api = Api(key_id, key_file, issuer_id)
 
 	# list all apps
-	apps = api.list_devices()
+	# apps = api.list_devices()
+	# for app in apps:
+	# 	print(app.name, app.udid)
+	apps = api.list_apps()
 	for app in apps:
-		print(app.name, app.udid)
-
+		print(app.name, app.sku)
 	# filter apps
 	# apps = api.list_apps(filters={'sku': 'DINORUSH', 'name': 'Dino Rush'})
 	# print("%d apps found" % len(apps))
