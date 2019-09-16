@@ -130,6 +130,7 @@ class Api:
 
 		if content_type == "application/json":
 			payload = r.json()
+			print(payload)
 			if 'errors' in payload:
 				raise APIError(payload.get('errors', [])[0].get('detail', 'Unknown error'))
 			return payload
