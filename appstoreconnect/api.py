@@ -127,7 +127,7 @@ class Api:
 			r = requests.patch(url=url, headers=headers, data=json.dumps(post_data))
 
 		content_type = r.headers['content-type']
-
+		
 		if content_type == "application/json":
 			payload = r.json()
 			print(payload)
@@ -142,10 +142,12 @@ class Api:
 					data_gz = data_gz + chunk
 
 			data = gzip.decompress(data_gz)
+			print(data.decode("utf-8"))
 			return data.decode("utf-8")
 		else:
 			if not 200 <= r.status_code <= 299:
 				raise APIError("HTTP error [%d][%s]" % (r.status_code, r.content))
+			print(r)
 			return r
 
 	@property
