@@ -137,3 +137,7 @@ class SalesReport(Resource):
 	filters = 'https://developer.apple.com/documentation/appstoreconnectapi/download_sales_and_trends_reports'
 
 
+# ListDevices
+class Devices(Resource):
+	endpoint = '/v1/devices'
+	filters = 'https://developer.apple.com/documentation/appstoreconnectapi/device/attributes'

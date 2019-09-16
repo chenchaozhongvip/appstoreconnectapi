@@ -155,6 +155,9 @@ class Api:
 
 		return self._token
 
+	# List Devices
+	def list_devices(self, filters=None, sort=None):
+		return self._get_resources(Devices, filters, sort)
 	# Users and Roles
 	def list_users(self, filters=None, sort=None):
 		"""
