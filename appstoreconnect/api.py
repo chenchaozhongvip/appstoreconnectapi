@@ -157,8 +157,10 @@ class Api:
 	@property
 	def token(self):
 		# generate a new token every 15 minutes
+		print('ccz----self_token',self._token,self.token_gen_date)
 		if not self._token or self.token_gen_date + timedelta(minutes=15) > datetime.now():
 			self._token = self._generate_token()
+			print('ccz----new token',self._token)
 
 		return self._token
 
