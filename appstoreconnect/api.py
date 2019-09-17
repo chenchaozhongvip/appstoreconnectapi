@@ -130,7 +130,8 @@ class Api:
 			r = requests.patch(url=url, headers=headers, data=json.dumps(post_data))
 
 		content_type = r.headers['content-type']
-		
+		print('ccz----response contentType:',content_type,'method:',method)
+
 		if content_type == "application/json":
 			payload = r.json()
 			print('ccz----json',payload)
@@ -164,6 +165,7 @@ class Api:
 	# List Devices
 	def list_devices(self, filters=None, sort=None):
 		return self._get_resources(Devices, filters, sort)
+
 	# Users and Roles
 	def list_users(self, filters=None, sort=None):
 		"""
