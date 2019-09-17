@@ -32,7 +32,7 @@ class Api:
 		self.key_id = key_id
 		self.key_file = key_file
 		self.issuer_id = issuer_id
-		self._debug = False
+		self._debug = True
 		token = self.token  # generate first token
 
 	def _generate_token(self):
@@ -133,7 +133,7 @@ class Api:
 		
 		if content_type == "application/json":
 			payload = r.json()
-			print(payload)
+			print('ccz----json',payload)
 			if 'errors' in payload:
 				raise APIError(payload.get('errors', [])[0].get('detail', 'Unknown error'))
 			return payload
@@ -145,12 +145,12 @@ class Api:
 					data_gz = data_gz + chunk
 
 			data = gzip.decompress(data_gz)
-			print(data.decode("utf-8"))
+			print('ccz----gzip',data.decode("utf-8"))
 			return data.decode("utf-8")
 		else:
 			if not 200 <= r.status_code <= 299:
 				raise APIError("HTTP error [%d][%s]" % (r.status_code, r.content))
-			print(r)
+			print('ccz----else',r)
 			return r
 
 	@property
