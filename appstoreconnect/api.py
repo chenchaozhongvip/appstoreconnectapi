@@ -128,9 +128,9 @@ class Api:
 		elif method == HttpMethod.PATCH:
 			headers["Content-Type"] = "application/json"
 			r = requests.patch(url=url, headers=headers, data=json.dumps(post_data))
-
+		print('ccz----reuqest header:',headers)
 		content_type = r.headers['content-type']
-		print('ccz----response contentType:',content_type,'method:',method)
+		print('ccz----response contentType:',content_type,'method:',method,"body:",r.body,"meta:",r.metas)
 
 		if content_type == "application/json":
 			payload = r.json()
