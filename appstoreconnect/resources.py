@@ -140,4 +140,4 @@ class SalesReport(Resource):
 # ListDevices
 class Devices(Resource):
 	endpoint = '/v1/devices'
-	filters = 'https://developer.apple.com/documentation/appstoreconnectapi/device/attributes'
+	attributes = 'https://developer.apple.com/documentation/appstoreconnectapi/device/attributes'
