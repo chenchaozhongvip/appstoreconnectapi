@@ -14,9 +14,9 @@ if __name__ == "__main__":
 	# apps = api.list_devices()
 	# for app in apps:
 	# 	print(app.name, app.udid)
-	apps = api.list_apps()
+	apps = api.list_users()
 	for app in apps:
-		print(app.name, app.sku)
+		print(app.firstName, app.lastName)
 	# filter apps
 	# apps = api.list_apps(filters={'sku': 'DINORUSH', 'name': 'Dino Rush'})
 	# print("%d apps found" % len(apps))

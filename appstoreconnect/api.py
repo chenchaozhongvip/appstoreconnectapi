@@ -76,6 +76,7 @@ class Api:
 
 			def __next__(self):
 				if not self.payload:
+					print('ccz----无payload, 开始fetch_page')
 					self.fetch_page()
 				if self.index < len(self.payload.get('data', [])):
 					data = self.payload.get('data', [])[self.index]
@@ -94,11 +95,12 @@ class Api:
 
 			def fetch_page(self):
 				self.payload = self.api._api_call(self.url)
-				print('ccz----res',self.payload)
+				print('ccz----响应',self.payload)
 				self.total_length = self.payload.get('meta', {}).get('paging', {}).get('total', 0)
 
 		url = full_url if full_url else "%s%s" % (BASE_API, Resource.endpoint)
 		url = self._build_query_parameters(url, filters, sort)
+		print('ccz----开始请求',url)
 		return IterResource(self, url)
 
 	def _build_query_parameters(self, url, filters, sort = None):
